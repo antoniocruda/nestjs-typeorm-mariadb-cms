@@ -1,0 +1,54 @@
+[
+    {
+        "page": "admin-user",
+        "label": "Admin Users",
+        "permissions": [
+            {
+                "key": "view",
+                "label": "View"
+            },
+            {
+                "key": "create",
+                "label": "Create"
+            },
+            {
+                "key": "update",
+                "label": "Update"
+            },
+            {
+                "key": "delete",
+                "label": "Delete"
+            },
+            {
+                "key": "change-password",
+                "label": "Change Password"
+            }
+        ]
+    },
+    {
+        "page": "admin-role",
+        "label": "Admin Roles",
+        "permissions": [
+            {
+                "key": "view",
+                "label": "View"
+            },
+            {
+                "key": "create",
+                "label": "Create"
+            },
+            {
+                "key": "update",
+                "label": "Update"
+            },
+            {
+                "key": "delete",
+                "label": "Delete"
+            },
+            {
+                "key": "manage-users",
+                "label": "Manage Users"
+            }
+        ]
+    }
+]
