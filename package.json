@@ -1,9 +1,9 @@
 {
-  "name": "main-backend",
+  "name": "nestjs-typeorm-mariadb-cms",
   "version": "1.0.0",
   "description": "",
   "author": "Antonio Cruda Jr <antonio.cruda@gmail.com>",
-  "private": true,
+  "private": false,
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",

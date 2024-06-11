@@ -1,4 +1,4 @@
-# main-backend
+# nestjs-typeorm-mariadb-cms
 
 ## Required Installed Software
 
@@ -8,7 +8,7 @@
 
 ## How to run this??
 
-1. ``$ cd <root path of main-backend>``
+1. ``$ cd <root path of nestjs-typeorm-mariadb-cms>``
 2. ``$ yarn install``
 3. ``$ cp .env.example .env``
 4. Change the values in the .env as needed.
@@ -44,5 +44,5 @@ migration folder.
 1. Make sure to run this backend first before running the CMS.
 2. You can use the default account credentials to login in the CMS.
   
-Username: admin
-Password: Pa$$w0rd
+``Username: admin``
+``Password: Pa$$w0rd``
