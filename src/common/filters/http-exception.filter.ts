@@ -58,12 +58,12 @@ export class HttpExceptionFilter implements ExceptionFilter {
                 data: exception.message
             };
         }
-        else if (status === 401) {
-            jsonData.code = ErrorCode.AUTHENTICATION_ERROR;
-        }
-        else if (status === 403) {
-            jsonData.code = ErrorCode.AUTHENTICATION_ERROR;
-            jsonData.data = 'You don\'t have permission to access this function.'
+        else if (
+            (status === 401)
+            || (status === 403)
+        ) {
+            jsonData.code = ErrorCode.AUTHORIZATION_ERROR;
+            jsonData.data = 'You don\'t have permission to access this function.';
         }
     
         response 

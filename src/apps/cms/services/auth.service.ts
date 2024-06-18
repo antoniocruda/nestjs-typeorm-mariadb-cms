@@ -1,4 +1,4 @@
-import { ForbiddenException, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import crypto from 'crypto';
 import { JwtService } from '@nestjs/jwt';
@@ -14,6 +14,7 @@ import { NotFoundException } from '@common/exceptions/not-found.exception';
 import { FailedException } from '@common/exceptions/failed.exception';
 import { AccountInactiveException } from '@common/exceptions/account-inactive.exception';
 import { AccountLockedException } from '@common/exceptions/account-locked.exception';
+import { ErrorCode } from '@common/types';
 import { RefreshSessionDto } from '../dto/auth/refresh-session.dto';
 import { LogoutDto } from '../dto/auth/logout.dto';
 import { ChangePasswordDto } from '../dto/auth/change-password.dto';
@@ -136,7 +137,10 @@ export class AuthService {
         let refreshTokenRedisKey = this.refreshTokenRedisKey(dto.refreshToken);
         const userIdRaw = await this.redis.get(refreshTokenRedisKey);
         if (!userIdRaw) {
-            throw new ForbiddenException();
+            throw new FailedException(
+                'The refresh token is either invalid or has expired already.',
+                ErrorCode.INVALID_OR_EXPIRED_REFRESH_SESSION
+            );
         }
 
         const userId = parseInt(userIdRaw);
@@ -148,7 +152,10 @@ export class AuthService {
             id: userId
         });
         if (!user) {
-            throw new ForbiddenException();
+            throw new FailedException(
+                'The refresh token is either invalid or has expired already.',
+                ErrorCode.INVALID_OR_EXPIRED_REFRESH_SESSION
+            );
         }
 
         return this.processLogin(user);
